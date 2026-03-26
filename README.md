@@ -6,7 +6,7 @@ Fixes broken Holy Roman Empire mechanics that Paradox shipped but never finished
 
 When you pass *Revoke the Privilegia* (the top reform on the Emperor power track), every HRE member gets an event asking them to swear a loyalty oath. In the base game, agreeing to swear the oath **does absolutely nothing**. No prestige, no subject conversion, no mechanical change of any kind. Refusing works fine and gets you expelled from the Empire, but accepting is completely pointless.
 
-This is not an Early Access placeholder. The game released in November 2025 and is currently on v1.1.10. The mechanic is just broken.
+This is not an Early Access placeholder. The game released in November 2024 and is currently on v1.1.10. The mechanic is just broken.
 
 This mod fills in what the oath was clearly intended to do.
 
@@ -18,13 +18,19 @@ When a member swears the oath, they get converted into an imperial subject type 
 
 | Before oath | After oath |
 |---|---|
-| Fiefdom (including PU juniors) | **Imperial Fiefdom** |
+| Fiefdom | **Imperial Fiefdom** |
 | Vassal | **Imperial Vassal** |
 | Independent HRE member | **Direct Imperial Vassal** |
 
 All three types cost zero diplomatic capacity and contribute zero strength to liberty desire, so the Emperor actually benefits from consolidating the Empire rather than being punished for it. They are only visible to the Emperor while Revoke the Privilegia is active.
 
-Direct Imperial Vassals are sworn to the office, not the person. When a new Emperor is crowned, they transfer over automatically.
+Junior partners in a personal union with the Emperor are left untouched, since personal unions are a separate international organization and reassigning the subject relation would cancel the union.
+
+### Coronation and succession
+
+Direct Imperial Vassals are sworn to the office, not the person. When a new Emperor is crowned, all Direct Imperial Vassal relationships are cleared and reassigned to the new Emperor. Personal unions are preserved through this transfer.
+
+Direct Imperial Vassals are valid candidates in imperial elections. When elected, their vassal status is cleared as part of the coronation.
 
 ### If you repeal Revoke the Privilegia
 
@@ -34,19 +40,37 @@ Unlikely, but possible. A new event fires for the Emperor and reverses everythin
 
 The same cleanup runs automatically before the Empire ceases to exist.
 
+## Language support
+
+All 10 languages supported by the base game are included:
+
+Brazilian Portuguese, English, French, German, Japanese, Korean, Polish, Russian, Simplified Chinese, Spanish, Turkish
+
 ## Files
 
 | File | What it does |
 |---|---|
-| `in_game/events/hre_fixed.txt` | Surgically replaces `hre.101`, `hre.800`, and `hre.15` using `REPLACE:`, and adds the new repeal event `hre.108` |
-| `in_game/common/laws/20_hre.txt` | Full override of the HRE law file to add an `on_deactivate` hook to `revoke_privilegia_policy` |
+| `in_game/events/hre.txt` | Full override of the base game event file, modifying `hre.101`, `hre.800`, and `hre.15`, and adding the new repeal event `hre.108` |
+| `in_game/common/laws/20_hre.txt` | Full override of the HRE law file, adding an `on_deactivate` hook to `revoke_privilegia_policy` |
 | `in_game/common/subject_types/hre_fixed.txt` | Defines the three new subject types |
-| `main_menu/localization/english/events/fixed_hre_events_l_english.yml` | Localisation for the new event options |
-| `main_menu/localization/english/fixed_hre_subjects_l_english.yml` | Localisation for the new subject type names and descriptions |
+| `in_game/common/international_organizations/hre.txt` | Adds Direct Imperial Vassals as valid emperor candidates |
+| `in_game/common/resolutions/hre_election.txt` | Removes the subject exclusion modifier for Direct Imperial Vassals in elections |
+| `main_menu/localization/*/events/fixed_hre_events_l_*.yml` | Event localisation for all supported languages |
+| `main_menu/localization/*/fixed_hre_subjects_l_*.yml` | Subject type names and descriptions for all supported languages |
 
 ## Compatibility
 
-Requires EU5 v1.1.10 or later. Both `hre.txt` and `20_hre.txt` are full file overrides, so this mod will conflict with any other mod that also modifies either of those files.
+Requires EU5 v1.1.10 or later. `hre.txt`, `20_hre.txt`, `hre.txt` (international organizations), and `hre_election.txt` are full file overrides. This mod will conflict with any other mod that modifies those files.
+
+## Already passed the law?
+
+If you passed Revoke the Privilegia before installing the mod, use the console to catch up:
+
+```
+event hre.100
+```
+
+This re-fires the loyalty oath event for all current HRE members.
 
 ## Why not on the Steam Workshop?
 
