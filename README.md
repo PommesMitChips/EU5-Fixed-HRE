@@ -1,66 +1,55 @@
 # EU5 Fixed HRE
 
-A mod for **Europa Universalis V** (v1.1.10+) that fixes broken Holy Roman Empire mechanics Paradox shipped but never implemented.
+Fixes broken Holy Roman Empire mechanics that Paradox shipped but never finished implementing.
 
-## What's broken in the base game
+## The problem
 
-### Revoke the Privilegia — shipped empty
+When you pass *Revoke the Privilegia* (the top reform on the Emperor power track), every HRE member gets an event asking them to swear a loyalty oath. In the base game, agreeing to swear the oath **does absolutely nothing**. No prestige, no subject conversion, no mechanical change of any kind. Refusing works fine and gets you expelled from the Empire, but accepting is completely pointless.
 
-Passing *Revoke the Privilegia* (the top reform of the Emperor power track) fires `hre.101` for every HRE member, prompting them to swear an oath of loyalty. In the base game, Option A — swearing the oath — **does nothing**. It is a completely empty effect: no prestige, no subject conversion, no mechanical consequence. Option B (refusing) expels the member from the Empire as intended, but accepting is pointless.
+This is not an Early Access placeholder. The game released in November 2024 and is currently on v1.1.10. The mechanic is just broken.
 
-This mod fills in what Option A was clearly designed to do.
+This mod fills in what the oath was clearly intended to do.
 
-## What this mod does
+## What changes
 
 ### Three new imperial subject types
 
-When an HRE member swears the loyalty oath after *Revoke the Privilegia* passes, they are converted to an appropriate imperial subject type based on their current status:
+When a member swears the oath, they get converted into an imperial subject type based on what they were before:
 
 | Before oath | After oath |
 |---|---|
-| Fiefdom (incl. PU junior) | **Imperial Fiefdom** |
+| Fiefdom (including PU juniors) | **Imperial Fiefdom** |
 | Vassal | **Imperial Vassal** |
-| Independent HRE member | **Direct Imperial Vassal** (sworn to the Emperor personally) |
+| Independent HRE member | **Direct Imperial Vassal** |
 
-All three types:
-- Cost **0 diplomatic capacity** for the overlord
-- Contribute **0 strength** toward liberty desire calculations
-- Spread institutions between overlord and subject at a mild rate
-- Are only visible to the HRE Emperor while *Revoke the Privilegia* is active
+All three types cost zero diplomatic capacity and contribute zero strength to liberty desire, so the Emperor actually benefits from consolidating the Empire rather than being punished for it. They are only visible to the Emperor while Revoke the Privilegia is active.
 
-**Direct Imperial Vassals** are transferred to a new Emperor automatically on coronation (`hre.800`), keeping them tied to the office rather than the person.
+Direct Imperial Vassals are sworn to the office, not the person. When a new Emperor is crowned, they transfer over automatically.
 
-### Repeal of Revoke the Privilegia
+### If you repeal Revoke the Privilegia
 
-If the Emperor repeals *Revoke the Privilegia*, a new event (`hre.108 — The Privilegia Restored`) fires and reverses the conversions:
+Unlikely, but possible. A new event fires for the Emperor and reverses everything: Imperial Fiefdoms and Vassals revert to their base types, and Direct Imperial Vassals are released back into the Empire as independent members.
 
-- Imperial Fiefdoms revert to Fiefdom
-- Imperial Vassals revert to Vassal
-- Direct Imperial Vassals are released as independent HRE members
+### If the HRE is dismantled
 
-### HRE Dissolution
+The same cleanup runs automatically before the Empire ceases to exist.
 
-If the Holy Roman Empire is dismantled (`hre.15`), the same cleanup runs automatically — all imperial subject types are reverted or released before the Empire ceases to exist.
+## Files
 
-## Files modified / added
-
-| File | Type | Purpose |
-|---|---|---|
-| `in_game/events/hre.txt` | Full override | Fills in `hre.101.a`, adds emperor coronation transfer (`hre.800`), adds repeal event (`hre.108`), adds dissolution cleanup (`hre.15`) |
-| `in_game/common/laws/20_hre.txt` | Full override | Adds `on_deactivate` to `revoke_privilegia_policy` to fire `hre.108` on repeal |
-| `in_game/common/subject_types/hre_fixed.txt` | New file | Defines `imperial_vassal`, `direct_imperial_vassal`, `imperial_fiefdom` subject types |
-| `main_menu/localization/english/events/fixed_hre_events_l_english.yml` | New file | Localisation for new event options |
-| `main_menu/localization/english/fixed_hre_subjects_l_english.yml` | New file | Localisation for new subject type names and descriptions |
+| File | What it does |
+|---|---|
+| `in_game/events/hre_fixed.txt` | Surgically replaces `hre.101`, `hre.800`, and `hre.15` using `REPLACE:`, and adds the new repeal event `hre.108` |
+| `in_game/common/laws/20_hre.txt` | Full override of the HRE law file to add an `on_deactivate` hook to `revoke_privilegia_policy` |
+| `in_game/common/subject_types/hre_fixed.txt` | Defines the three new subject types |
+| `main_menu/localization/english/events/fixed_hre_events_l_english.yml` | Localisation for the new event options |
+| `main_menu/localization/english/fixed_hre_subjects_l_english.yml` | Localisation for the new subject type names and descriptions |
 
 ## Compatibility
 
-- Requires **EU5 v1.1.10** or later
-- Fully overrides `hre.txt` and `20_hre.txt` — **incompatible with any mod that also modifies these files**
-- Does not touch any other base game files
+Requires EU5 v1.1.10 or later. The law file (`20_hre.txt`) is a full override, so this mod will conflict with any other mod that also modifies it. Everything else uses surgical replacements and should be more compatible.
 
 ## Installation
 
 1. Download or clone this repository
-2. Place the `Fixed HRE` folder in your EU5 mod directory:
-   `Documents/Paradox Interactive/Europa Universalis V/mod/`
+2. Place the `Fixed HRE` folder in your EU5 mod directory: `Documents/Paradox Interactive/Europa Universalis V/mod/`
 3. Enable the mod in the EU5 launcher
