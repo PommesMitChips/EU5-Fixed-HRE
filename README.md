@@ -50,7 +50,7 @@ Brazilian Portuguese, English, French, German, Japanese, Korean, Polish, Russian
 
 | File | What it does |
 |---|---|
-| `in_game/events/hre.txt` | Full override of the base game event file, modifying `hre.101`, `hre.800`, and `hre.15`, and adding the new repeal event `hre.108` |
+| `in_game/events/00_hre_fixed.txt` | Modifies `hre.100`, `hre.101`, `hre.800`, and `hre.15`, and adds the new repeal event `hre.108`. Loads before the base game via `00_` prefix so duplicate IDs resolve in the mod's favour. |
 | `in_game/common/laws/00_hre_fix.txt` | Adds an `on_deactivate` hook to `revoke_privilegia_policy` |
 | `in_game/common/subject_types/00_hre_fixed.txt` | Defines the three new subject types |
 | `in_game/common/international_organizations/00_hre_fixed.txt` | Adds Direct Imperial Vassals as valid emperor candidates |
@@ -60,7 +60,7 @@ Brazilian Portuguese, English, French, German, Japanese, Korean, Polish, Russian
 
 ## Compatibility
 
-Requires EU5 v1.1.10 or later. All files except `in_game/events/hre.txt` use partial definitions that load before the base game and merge cleanly. The events file is a full override and will conflict with other mods that modify the base game HRE events.
+Requires EU5 v1.1.10 or later. All files use `00_`-prefixed partial definitions that load before the base game. For most file types this means clean merging. For events, duplicate IDs resolve to the first loaded, so the mod's versions win. The only realistic conflict is with another mod that also redefines `hre.100`, `hre.101`, `hre.800`, `hre.15`, or adds `hre.108`.
 
 ## Already passed the law?
 
