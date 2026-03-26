@@ -6,7 +6,7 @@ Fixes broken Holy Roman Empire mechanics that Paradox shipped but never finished
 
 When you pass *Revoke the Privilegia* (the top reform on the Emperor power track), every HRE member gets an event asking them to swear a loyalty oath. In the base game, agreeing to swear the oath **does absolutely nothing**. No prestige, no subject conversion, no mechanical change of any kind. Refusing works fine and gets you expelled from the Empire, but accepting is completely pointless.
 
-This is not an Early Access placeholder. The game released in November 2024 and is currently on v1.1.10. The mechanic is just broken.
+This is not an Early Access placeholder. The game released in November 2025 and is currently on v1.1.10. The mechanic is just broken.
 
 This mod fills in what the oath was clearly intended to do.
 
