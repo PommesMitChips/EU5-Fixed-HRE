@@ -26,7 +26,10 @@ hre.100 = {
 			international_organization:hre = {
 				every_international_organization_member = {
 					limit = {
-						NOT = { root = this }
+						NOT = { OR {
+							root = this
+							in_union_with = root
+						} }
 					}
 					trigger_event_silently = { 
 						id = hre.101
@@ -410,17 +413,25 @@ hre.800 = {
 
 		# Transfer all direct imperial vassals to the new emperor (root).
 		# They may currently be subjects of the previous emperor.
-		every_country = {
-			limit = {
-				is_subject_type = direct_imperial_vassal
-				is_member_of_international_organization = international_organization:hre
-				NOT = { is_subject_of = root }
-			}
-			save_scope_as = hre_member
-			overlord = { cancel_subject = scope:hre_member }
-			make_subject_of = {
-				target = root
-				type = subject_type:direct_imperial_vassal
+		international_organization:hre = {
+			every_international_organization_member = {
+				# Cancel any existing direct imperial vassal link
+				if = {
+					limit = { is_subject_type = direct_imperial_vassal }
+					overlord = { cancel_subject = this }
+				}
+
+				# Assign new direct imperial vassals to new emperor, skipping PUs
+				if = {
+					limit = {
+						NOT = { in_union_with = root }   # preserve personal unions
+						NOT = { is_subject_of = root }   # skip if already subject
+					}
+					make_subject_of = {
+						target = root
+						type = subject_type:direct_imperial_vassal
+					}
+				}
 			}
 		}
 	}
