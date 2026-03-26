@@ -1,0 +1,5 @@
+﻿l_french:
+ hre.101.a: "Nous prêterons serment de loyauté à l'Empereur et aux empereurs futurs, devenant ainsi des sujets au sein de la structure impériale."
+ hre.108.title: "Les Privilèges Restaurés"
+ hre.108.desc: "Avec l'abrogation de la Révocation des Privilèges du [GetUniqueInternationalOrganization('hre').GetName], les liens forgés par le serment impérial sont dissous. Fiefs et vassaux retrouvent leur ancien statut, et ceux liés uniquement par charte impériale directe sont libres d'agir de nouveau en tant que membres indépendants de l'Empire."
+ hre.108.a: "Les Princes sont libres à nouveau."

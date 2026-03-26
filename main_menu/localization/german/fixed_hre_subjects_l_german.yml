@@ -1,0 +1,13 @@
+﻿l_german:
+ LEAD_imperial_vassal: "$LIST$ ist ein [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName] von $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ ist ein [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName] von $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ ist ein [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName] von $LIST$."
+ imperial_fiefdom: "Reichslehen"
+ imperial_fiefdom_desc: "Ein $imperial_fiefdom$ ist ein Territorium, das durch dynastisches Recht oder feudale Belehnung gehalten und vom [GetUniqueInternationalOrganization('hre').GetName] anerkannt wurde. Obwohl sie ihrem [overlord|e] treu bleiben, werden ihre Pflichten durch das Reichsrecht geregelt, das sicherstellt, dass sie ihre Kräfte nicht gegen die Autorität des [overlord|e] bündeln. Sie profitieren von einer erhöhten [ShowModifierTypeName('country_cabinet_efficiency')]."
+ imperial_vassal: "Reichsvasall"
+ imperial_vassal_desc: "Ein $imperial_vassal$ ist ein Staat, der dem Schutz des [GetUniqueInternationalOrganization('hre').GetName] verpflichtet ist. Er zahlt Abgaben und nimmt an den Feldzügen seines [overlord|e] teil, doch da sein Eid an die imperiale Struktur gebunden ist, wird seine Militärmacht bei der Berechnung des Freiheitsdrangs nicht mit der anderer Untertanen zusammengerechnet."
+ direct_imperial_vassal: "Direkter Reichsvasall"
+ direct_imperial_vassal_desc: "Ein $direct_imperial_vassal$ ist ein Staat, der dem Schutz des [GetUniqueInternationalOrganization('hre').GetName] verpflichtet ist. Er zahlt Abgaben und nimmt an den Feldzügen des Kaisers teil, und da sein Eid an die imperiale Struktur gebunden ist, wird seine Militärmacht bei der Berechnung des Freiheitsdrangs nicht mit der anderer Untertanen zusammengerechnet."

@@ -1,0 +1,5 @@
+﻿l_polish:
+ hre.101.a: "Złożymy przysięgę wierności Cesarzowi i przyszłym cesarzom, stając się poddanymi w ramach struktury cesarskiej."
+ hre.108.title: "Privilegia Przywrócone"
+ hre.108.desc: "Po uchyleniu Odwołania Przywilejów [GetUniqueInternationalOrganization('hre').GetName] więzy wykute cesarską przysięgą zostają rozwiązane. Lenna i wasale powracają do swego dawnego statusu, a ci związani wyłącznie bezpośrednim przywilejem cesarskim są znów wolni, by działać jako niezależni członkowie Cesarstwa."
+ hre.108.a: "Książęta są znów wolni."

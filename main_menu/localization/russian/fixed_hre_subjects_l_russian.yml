@@ -1,0 +1,13 @@
+﻿l_russian:
+ LEAD_imperial_vassal: "$LIST$ — [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName] $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ — [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName] $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ — [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName] $LIST$."
+ imperial_fiefdom: "Имперский Лен"
+ imperial_fiefdom_desc: "$imperial_fiefdom$ — это территория, удерживаемая на основании династического права или феодального пожалования, признанная [GetUniqueInternationalOrganization('hre').GetName]. Оставаясь верными своему [overlord|e], они несут обязательства, регулируемые Имперским Законом, который не позволяет им объединять силы против власти [overlord|e]. Они получают повышенную [ShowModifierTypeName('country_cabinet_efficiency')]."
+ imperial_vassal: "Имперский Вассал"
+ imperial_vassal_desc: "$imperial_vassal$ — это государство, присягнувшее на защиту [GetUniqueInternationalOrganization('hre').GetName]. Оно платит взносы и участвует в военных походах своего [overlord|e], однако, поскольку его клятва связана с имперской структурой, при расчёте стремления к независимости его военная мощь не суммируется с мощью других вассалов."
+ direct_imperial_vassal: "Прямой Имперский Вассал"
+ direct_imperial_vassal_desc: "$direct_imperial_vassal$ — это государство, присягнувшее на защиту [GetUniqueInternationalOrganization('hre').GetName]. Оно платит взносы и участвует в военных походах императора, и поскольку его клятва связана с имперской структурой, при расчёте стремления к независимости его военная мощь не суммируется с мощью других вассалов."

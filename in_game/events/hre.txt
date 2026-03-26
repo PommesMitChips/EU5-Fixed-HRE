@@ -27,7 +27,6 @@ hre.100 = {
 				every_international_organization_member = {
 					limit = {
 						NOT = { root = this }
-						NOT = { is_subject_of = root }
 					}
 					trigger_event_silently = { 
 						id = hre.101

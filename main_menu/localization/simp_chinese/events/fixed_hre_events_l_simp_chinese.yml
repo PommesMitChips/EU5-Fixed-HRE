@@ -1,0 +1,5 @@
+﻿l_simp_chinese:
+ hre.101.a: "我们将向皇帝及未来的历任皇帝宣誓效忠，成为帝国体制下的附属国。"
+ hre.108.title: "特权的恢复"
+ hre.108.desc: "随着[GetUniqueInternationalOrganization('hre').GetName]废除特权令的撤销，由帝国誓约所结成的纽带宣告解除。封地与藩属恢复至往昔地位，而那些仅凭直接帝国特许状约束的成员，得以再度作为帝国的独立成员自由行事。"
+ hre.108.a: "诸侯重获自由。"

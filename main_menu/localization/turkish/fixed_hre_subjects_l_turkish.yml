@@ -1,0 +1,13 @@
+﻿l_turkish:
+ LEAD_imperial_vassal: "$LIST$ bir [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName]: $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ bir [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName]: $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ bir [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName]: $LIST$."
+ imperial_fiefdom: "İmparatorluk Leni"
+ imperial_fiefdom_desc: "$imperial_fiefdom$, hanedanlık hakkı veya feodal bağış yoluyla elde tutulan ve [GetUniqueInternationalOrganization('hre').GetName] tarafından tanınan bir topraktır. [overlord|e]'lerine sadık kalsalar da yükümlülükleri İmparatorluk Hukuku tarafından düzenlenir; bu da onların [overlord|e]'nin otoritesine karşı güçlerini birleştirmelerini engeller. Artırılmış [ShowModifierTypeName('country_cabinet_efficiency')] avantajından yararlanırlar."
+ imperial_vassal: "İmparatorluk Vasalı"
+ imperial_vassal_desc: "$imperial_vassal$, [GetUniqueInternationalOrganization('hre').GetName]'nın korumasına yemin etmiş bir devlettir. [overlord|e]'lerine vergi öder ve askeri seferlere katılırlar; ancak yeminleri İmparatorluk yapısına bağlı olduğundan, özgürlük arzularını hesaplarken askeri güçlerini diğer tabi devletlerle birleştirmezler."
+ direct_imperial_vassal: "Doğrudan İmparatorluk Vasalı"
+ direct_imperial_vassal_desc: "$direct_imperial_vassal$, [GetUniqueInternationalOrganization('hre').GetName]'nın korumasına yemin etmiş bir devlettir. İmparatora vergi öder ve askeri seferlere katılırlar; yeminleri İmparatorluk yapısına bağlı olduğundan, özgürlük arzularını hesaplarken askeri güçlerini diğer tabi devletlerle birleştirmezler."

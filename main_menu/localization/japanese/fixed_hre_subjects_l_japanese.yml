@@ -1,0 +1,13 @@
+﻿l_japanese:
+ LEAD_imperial_vassal: "$LIST$は[SUBJECT_TYPE.GetName]です"
+ AM_imperial_vassal: "$LIST$の[SUBJECT_TYPE.GetName]。"
+ LEAD_direct_imperial_vassal: "$LIST$は[SUBJECT_TYPE.GetName]です"
+ AM_direct_imperial_vassal: "$LIST$の[SUBJECT_TYPE.GetName]。"
+ LEAD_imperial_fiefdom: "$LIST$は[SUBJECT_TYPE.GetName]です"
+ AM_imperial_fiefdom: "$LIST$の[SUBJECT_TYPE.GetName]。"
+ imperial_fiefdom: "帝国封土"
+ imperial_fiefdom_desc: "$imperial_fiefdom$とは、王朝的権利または封建的下賜によって保持され、[GetUniqueInternationalOrganization('hre').GetName]によって認められた領域です。彼らは[overlord|e]への忠誠を保ちながらも、その義務は帝国法によって規定されており、[overlord|e]の権威に対抗して勢力を結集しないよう保証されています。また、[ShowModifierTypeName('country_cabinet_efficiency')]が向上します。"
+ imperial_vassal: "帝国封臣"
+ imperial_vassal_desc: "$imperial_vassal$とは、[GetUniqueInternationalOrganization('hre').GetName]の庇護に誓った国家です。彼らは[overlord|e]に貢税を納め、軍事遠征に参加しますが、その誓約が帝国の構造に結びついているため、独立の意欲を計算する際に他の臣下と軍事力を合算しません。"
+ direct_imperial_vassal: "直属帝国封臣"
+ direct_imperial_vassal_desc: "$direct_imperial_vassal$とは、[GetUniqueInternationalOrganization('hre').GetName]の庇護に誓った国家です。彼らは皇帝に貢税を納め、軍事遠征に参加しますが、その誓約が帝国の構造に結びついているため、独立の意欲を計算する際に他の臣下と軍事力を合算しません。"

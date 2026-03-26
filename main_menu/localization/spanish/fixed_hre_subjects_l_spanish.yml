@@ -1,0 +1,13 @@
+﻿l_spanish:
+ LEAD_imperial_vassal: "$LIST$ es un [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName] de $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ es un [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName] de $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ es un [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName] de $LIST$."
+ imperial_fiefdom: "Feudo Imperial"
+ imperial_fiefdom_desc: "Un $imperial_fiefdom$ es un territorio poseído por derecho dinástico o concesión feudal que ha sido reconocido por el [GetUniqueInternationalOrganization('hre').GetName]. Aunque permanecen leales a su [overlord|e], sus obligaciones están reguladas por la Ley Imperial, garantizando que no aúnen sus fuerzas contra la autoridad del [overlord|e]. Disfrutan de una mayor [ShowModifierTypeName('country_cabinet_efficiency')]."
+ imperial_vassal: "Vasallo Imperial"
+ imperial_vassal_desc: "Un $imperial_vassal$ es un estado jurado a la protección del [GetUniqueInternationalOrganization('hre').GetName]. Pagan tributos y participan en las campañas militares de su [overlord|e], pero como su juramento está vinculado a la estructura Imperial, no suman su poder militar al de otros súbditos al calcular su deseo de libertad."
+ direct_imperial_vassal: "Vasallo Imperial Directo"
+ direct_imperial_vassal_desc: "Un $direct_imperial_vassal$ es un estado jurado a la protección del [GetUniqueInternationalOrganization('hre').GetName]. Pagan tributos y participan en las campañas militares del emperador, y como su juramento está vinculado a la estructura Imperial, no suman su poder militar al de otros súbditos al calcular su deseo de libertad."

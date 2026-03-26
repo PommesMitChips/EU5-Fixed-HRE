@@ -1,0 +1,5 @@
+﻿l_turkish:
+ hre.101.a: "İmparator'a ve gelecekteki imparatorlara sadakat yemini edeceğiz; böylece imparatorluk yapısı altında tabi devlet konumuna geleceğiz."
+ hre.108.title: "Ayrıcalıklar Yeniden Tesis Edildi"
+ hre.108.desc: "[GetUniqueInternationalOrganization('hre').GetName]'nın Ayrıcalık Fermanı'nın yürürlükten kaldırılmasıyla birlikte, imparatorluk yeminiyle kurulan bağlar çözülür. Lenler ve vasallar eski statülerine geri döner; yalnızca doğrudan imparatorluk fermanıyla bağlı olanlar ise İmparatorluğun bağımsız üyeleri olarak hareket etmekte özgürdür."
+ hre.108.a: "Prensler yeniden özgür."

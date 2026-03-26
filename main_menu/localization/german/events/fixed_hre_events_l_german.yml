@@ -1,0 +1,5 @@
+﻿l_german:
+ hre.101.a: "Wir werden dem Kaiser und seinen Nachfolgern Treue schwören und damit Untertanen der imperialen Struktur werden."
+ hre.108.title: "Die Privilegien Wiederhergestellt"
+ hre.108.desc: "Mit der Rücknahme des Privilegienwiderrufs des [GetUniqueInternationalOrganization('hre').GetName] werden die durch den Reichseid geschmiedeten Bande gelöst. Lehen und Vasallen kehren in ihren früheren Stand zurück, und jene, die allein durch kaiserliche Direktcharta gebunden waren, können erneut als unabhängige Mitglieder des Reiches handeln."
+ hre.108.a: "Die Fürsten sind wieder frei."

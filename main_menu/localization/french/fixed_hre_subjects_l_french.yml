@@ -1,0 +1,13 @@
+﻿l_french:
+ LEAD_imperial_vassal: "$LIST$ est un [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName] de $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ est un [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName] de $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ est un [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName] de $LIST$."
+ imperial_fiefdom: "Fief Impérial"
+ imperial_fiefdom_desc: "Un $imperial_fiefdom$ est un territoire détenu par droit dynastique ou concession féodale, reconnu par le [GetUniqueInternationalOrganization('hre').GetName]. Bien qu'ils demeurent loyaux envers leur [overlord|e], leurs obligations sont régies par la Loi Impériale, les empêchant de conjuguer leurs forces contre l'autorité du [overlord|e]. Ils bénéficient d'une augmentation de [ShowModifierTypeName('country_cabinet_efficiency')]."
+ imperial_vassal: "Vassal Impérial"
+ imperial_vassal_desc: "Un $imperial_vassal$ est un État voué à la protection du [GetUniqueInternationalOrganization('hre').GetName]. Il verse des contributions et participe aux campagnes militaires de son [overlord|e], mais son serment étant lié à la structure impériale, il n'additionne pas sa puissance militaire à celle des autres sujets pour calculer son désir de liberté."
+ direct_imperial_vassal: "Vassal Impérial Direct"
+ direct_imperial_vassal_desc: "Un $direct_imperial_vassal$ est un État voué à la protection du [GetUniqueInternationalOrganization('hre').GetName]. Il verse des contributions et participe aux campagnes militaires de l'empereur, et son serment étant lié à la structure impériale, il n'additionne pas sa puissance militaire à celle des autres sujets pour calculer son désir de liberté."

@@ -1,0 +1,13 @@
+﻿l_polish:
+ LEAD_imperial_vassal: "$LIST$ jest [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName] z $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ jest [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName] z $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ jest [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName] z $LIST$."
+ imperial_fiefdom: "Lenno Cesarskie"
+ imperial_fiefdom_desc: "$imperial_fiefdom$ to terytorium posiadane na mocy prawa dynastycznego lub nadania feudalnego, uznane przez [GetUniqueInternationalOrganization('hre').GetName]. Choć pozostają wierni swojemu [overlord|e], ich zobowiązania są regulowane przez Prawo Cesarskie, które gwarantuje, że nie łączą swych sił przeciwko władzy [overlord|e]. Korzystają ze zwiększonej [ShowModifierTypeName('country_cabinet_efficiency')]."
+ imperial_vassal: "Wasal Cesarski"
+ imperial_vassal_desc: "$imperial_vassal$ to państwo złożone w przysięgę na ochronę [GetUniqueInternationalOrganization('hre').GetName]. Płaci daniny i uczestniczy w kampaniach wojskowych swojego [overlord|e], lecz ponieważ jego przysięga jest związana ze strukturą Cesarstwa, nie sumuje swojej siły militarnej z innymi lennymi przy obliczaniu chęci do uzyskania wolności."
+ direct_imperial_vassal: "Bezpośredni Wasal Cesarski"
+ direct_imperial_vassal_desc: "$direct_imperial_vassal$ to państwo złożone w przysięgę na ochronę [GetUniqueInternationalOrganization('hre').GetName]. Płaci daniny i uczestniczy w kampaniach wojskowych cesarza, a ponieważ jego przysięga jest związana ze strukturą Cesarstwa, nie sumuje swojej siły militarnej z innymi lennymi przy obliczaniu chęci do uzyskania wolności."

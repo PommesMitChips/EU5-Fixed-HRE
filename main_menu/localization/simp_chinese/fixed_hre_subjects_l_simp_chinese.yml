@@ -1,0 +1,13 @@
+﻿l_simp_chinese:
+ LEAD_imperial_vassal: "$LIST$是[SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "$LIST$的[SUBJECT_TYPE.GetName]。"
+ LEAD_direct_imperial_vassal: "$LIST$是[SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "$LIST$的[SUBJECT_TYPE.GetName]。"
+ LEAD_imperial_fiefdom: "$LIST$是[SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "$LIST$的[SUBJECT_TYPE.GetName]。"
+ imperial_fiefdom: "帝国封地"
+ imperial_fiefdom_desc: "$imperial_fiefdom$是一片通过王朝继承权或封建赐予而持有、并经[GetUniqueInternationalOrganization('hre').GetName]认可的领土。他们效忠于自己的[overlord|e]，其义务受帝国法律约束，确保其不会联合力量对抗[overlord|e]的权威。他们享有更高的[ShowModifierTypeName('country_cabinet_efficiency')]。"
+ imperial_vassal: "帝国藩属"
+ imperial_vassal_desc: "$imperial_vassal$是宣誓效忠[GetUniqueInternationalOrganization('hre').GetName]以求庇护的国家。他们向[overlord|e]缴纳贡赋并参与军事征伐，但由于其誓约与帝国体制相连，在计算独立意愿时，其军事力量不与其他附属国合并计算。"
+ direct_imperial_vassal: "直属帝国藩属"
+ direct_imperial_vassal_desc: "$direct_imperial_vassal$是宣誓效忠[GetUniqueInternationalOrganization('hre').GetName]以求庇护的国家。他们向皇帝缴纳贡赋并参与军事征伐，由于其誓约与帝国体制相连，在计算独立意愿时，其军事力量不与其他附属国合并计算。"

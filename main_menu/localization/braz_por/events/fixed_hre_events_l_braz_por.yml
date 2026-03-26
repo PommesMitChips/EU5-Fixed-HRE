@@ -1,0 +1,5 @@
+﻿l_braz_por:
+ hre.101.a: "Prestaremos juramento de lealdade ao Imperador e aos futuros imperadores, tornando-nos súditos sob a estrutura imperial."
+ hre.108.title: "Os Privilégios Restaurados"
+ hre.108.desc: "Com a revogação da Revogação dos Privilégios do [GetUniqueInternationalOrganization('hre').GetName], os laços forjados pelo juramento imperial são dissolvidos. Feudos e vassalos retornam à sua antiga condição, e aqueles vinculados exclusivamente por carta imperial direta são livres para agir novamente como membros independentes do Império."
+ hre.108.a: "Os Príncipes são livres novamente."
