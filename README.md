@@ -46,7 +46,7 @@ The same cleanup runs automatically before the Empire ceases to exist.
 
 ## Compatibility
 
-Requires EU5 v1.1.10 or later. The law file (`20_hre.txt`) is a full override, so this mod will conflict with any other mod that also modifies it. Everything else uses surgical replacements and should be more compatible.
+Requires EU5 v1.1.10 or later. Both `hre.txt` and `20_hre.txt` are full file overrides, so this mod will conflict with any other mod that also modifies either of those files.
 
 ## Why not on the Steam Workshop?
 
