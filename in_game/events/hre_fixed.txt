@@ -1,0 +1,243 @@
+﻿namespace = hre
+
+# MODDED: option a now converts the member to the appropriate imperial subject type
+REPLACE:hre.101 = {
+	type = country_event
+	title = hre.101.title
+	desc = hre.101.desc
+
+ 	illustration_tags = {
+ 		10 = angry
+ 		10 = interior
+ 	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = hre.101.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				opinion = {
+					target = international_organization:hre.leader_country
+					value < 0
+				}
+			}
+		}
+		add_prestige = 50
+
+		# Convert only this member (root) to the appropriate imperial subject type.
+		# In EU5, PU juniors are hardcoded as fiefdoms; changing their subject type
+		# to imperial_fiefdom is fine — they remain members of their union IO.
+		if = {
+			limit = { is_subject_type = fiefdom }
+			change_subject_type = subject_type:imperial_fiefdom
+		}
+		else_if = {
+			limit = { is_subject_type = vassal }
+			change_subject_type = subject_type:imperial_vassal
+		}
+		else_if = {
+			limit = { NOT = { is_subject = yes } }
+			make_subject_of = {
+				target = international_organization:hre.leader_country
+				type = subject_type:direct_imperial_vassal
+			}
+		}
+	}
+	option = {
+		name = hre.101.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				opinion = {
+					target = international_organization:hre.leader_country
+					value >= 0
+				}
+			}
+		}
+		custom_tooltip = {
+			text = hre.101.b.tt
+			every_owned_location = {
+				limit = {
+					is_owned_by_international_organization = international_organization:hre
+				}
+				add_core = international_organization:hre.leader_country
+				remove_from_international_organization = international_organization:hre
+			}
+		}
+		international_organization:hre = {
+			leader_country = {
+				add_opinion = {
+					target = root
+					modifier = left_empire
+				}
+			}
+			remove_country_from_international_organization = root
+		}
+		add_opinion = {
+			target = international_organization:hre.leader_country
+			modifier = united_empire
+		}
+	}
+}
+
+# MODDED: transfers direct_imperial_vassals to the new emperor on coronation
+REPLACE:hre.800 = {
+	type = country_event
+	title = hre.800.title
+	desc = hre.800.desc
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+
+		capital = {
+			save_scope_as = new_imperial_capital
+		}
+	}
+
+	option = {
+		name = hre.800.a
+		move_imperial_work_of_art = {
+			work_of_art = work_of_art:imperial_crown_hre
+			international_organization = international_organization:hre
+			country = root
+			location = scope:new_imperial_capital
+		}
+		move_imperial_work_of_art = {
+			work_of_art = work_of_art:imperial_orb_hre
+			international_organization = international_organization:hre
+			country = root
+			location = scope:new_imperial_capital
+		}
+		move_imperial_work_of_art = {
+			work_of_art = work_of_art:saint_stephans_purse
+			international_organization = international_organization:hre
+			country = root
+			location = scope:new_imperial_capital
+		}
+		move_imperial_work_of_art = {
+			work_of_art = work_of_art:coronation_gospel_hre
+			international_organization = international_organization:hre
+			country = root
+			location = scope:new_imperial_capital
+		}
+
+		# Transfer all direct imperial vassals to the new emperor (root).
+		# They may currently be subjects of the previous emperor.
+		every_country = {
+			limit = {
+				is_subject_type = direct_imperial_vassal
+				is_member_of_international_organization = international_organization:hre
+				NOT = { is_subject_of = root }
+			}
+			save_scope_as = hre_member
+			overlord = { cancel_subject = scope:hre_member }
+			make_subject_of = {
+				target = root
+				type = subject_type:direct_imperial_vassal
+			}
+		}
+	}
+}
+
+# MODDED: reverts imperial subject types and releases direct vassals on HRE dissolution
+REPLACE:hre.15 = {
+	type = country_event
+	title = hre.15.title
+	desc = hre.15.desc
+
+	illustration_tags = {
+ 		10 = angry
+ 		10 = interior
+ 	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+		scope:old_emperor = {
+			ruler = { save_scope_as = old_emperor_ruler }
+		}
+		save_scope_as = hre_destroyer
+		ruler = { save_scope_as = hre_destroyer_ruler }
+	}
+
+	option = {
+		name = hre.15.a
+
+		add_prestige = prestige_extreme_bonus
+
+		# Revert any imperial subject types created by Revoke the Privilegia.
+		# Using every_country rather than IO membership in case the HRE IO dissolves
+		# as part of this event before we can iterate its members.
+		every_country = {
+			limit = {
+				OR = {
+					is_subject_type = imperial_fiefdom
+					is_subject_type = imperial_vassal
+					is_subject_type = direct_imperial_vassal
+				}
+			}
+			if = {
+				limit = { is_subject_type = imperial_fiefdom }
+				change_subject_type = subject_type:fiefdom
+			}
+			else_if = {
+				limit = { is_subject_type = imperial_vassal }
+				change_subject_type = subject_type:vassal
+			}
+			else_if = {
+				limit = { is_subject_type = direct_imperial_vassal }
+				save_scope_as = released_vassal
+				overlord = { cancel_subject = scope:released_vassal }
+			}
+		}
+	}
+}
+
+# NEW: fires for emperor when revoke_privilegia_policy is repealed
+# Converts imperial subjects back to their base types; releases direct_imperial_vassals
+hre.108 = {
+	type = country_event
+	title = hre.108.title
+	desc = hre.108.desc
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = hre.108.a
+		international_organization:hre = {
+			every_international_organization_member = {
+				limit = { NOT = { root = this } }
+				if = {
+					limit = { is_subject_type = imperial_fiefdom }
+					change_subject_type = subject_type:fiefdom
+				}
+				else_if = {
+					limit = { is_subject_type = imperial_vassal }
+					change_subject_type = subject_type:vassal
+				}
+				else_if = {
+					limit = { is_subject_type = direct_imperial_vassal }
+					save_scope_as = released_vassal
+					overlord = { cancel_subject = scope:released_vassal }
+				}
+			}
+		}
+	}
+}
