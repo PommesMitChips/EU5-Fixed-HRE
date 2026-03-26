@@ -1,4 +1,4 @@
-﻿hre = {
+﻿REPLACE:hre = {
 
 	has_target = no
 	unique = yes

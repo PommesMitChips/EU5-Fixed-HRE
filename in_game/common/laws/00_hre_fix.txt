@@ -1,0 +1,327 @@
+﻿#Centralization Category
+REPLACE:power_of_the_emperor_law = {
+	law_category = centralization
+	type = international_organization
+	potential = {
+		international_organization_type = international_organization_type:hre
+		hre_has_enabled_all_imperial_laws = yes
+	}
+	allow = {
+	}
+	locked = {
+	}
+	has_levels = yes
+	custom_tags = { forbids_no_policy }
+	holy_roman_figurehead_policy = {
+		level = 1
+		allow = {
+			international_organization_has_law = law:power_of_the_emperor_law
+			hre_can_select_adjacent_reform_level = { law = law:power_of_the_emperor_law policy = policy:holy_roman_figurehead_policy }
+			has_currency_to_vote_for_law = { value = imperial_authority_prince_very_friendly_law }
+		}
+		on_activate = {
+			hre_on_reform_level_passed_effect = { law_imperial_authority_cost = imperial_authority_prince_very_friendly_law }
+			hre_on_reform_level_passed_opinion_effect_all_members = { strength = prince_very_friendly }
+			# hre_disallow_emperor_reform_proposals = yes #disregarded because it was not working properly
+			international_organization_unlock_parliament_issue_effect = { type = hre_force_emperor_to_abdicate }
+		}
+		on_deactivate = {
+			hre_allow_emperor_reform_proposals = yes
+			international_organization_lock_parliament_issue_effect = { type = hre_force_emperor_to_abdicate }
+		}
+		country_modifier = {
+			#Emperor Modifier
+			potential_trigger = {
+				is_leader_of_international_organization = scope:recipient
+			}
+			monthly_imperial_authority = monthly_imperial_authority_very_strong_penalty
+		}
+		# How much the Emperor wants to propose a policy
+		wants_propose_policy = {
+			subtract = {
+				desc = "POLICY_BIAS_LEADER_OPPOSES"
+				value = 10000 # Terrible reform for the emperor
+			}
+		}
+		# How much the princes want to vote for / against the policy
+		wants_this_policy_bias = {
+			if = {
+				limit = {
+					is_emperor = no
+				}
+				add = {
+					desc = "POLICY_BIAS_PRINCE_WANTS"
+					value = 100 # Princes love weakening the emperor
+				}
+				add = hre_default_policy_opinion
+			}
+			else = {
+				#oh hell no
+				subtract = {
+					desc = "POLICY_BIAS_LEADER_OPPOSES"
+					value = 10000 # Terrible reform for the emperor
+				}
+			}
+		}
+		wants_keep_policy = {
+			add = hre_default_keep_policy_opinion
+		}
+	}
+	kaisertum_policy = {
+		level = 2
+		allow = {
+			international_organization_has_law = law:power_of_the_emperor_law
+			hre_can_select_adjacent_reform_level = { law = law:power_of_the_emperor_law policy = policy:kaisertum_policy }
+			has_currency_to_vote_for_law = { value = imperial_authority_standard_law }
+		}
+		on_activate = {
+			hre_on_reform_level_passed_effect = { law_imperial_authority_cost = imperial_authority_standard_law }
+		}
+		international_organization_modifier = {
+			imperial_ban_allowed = yes
+		}
+		# How much the Emperor wants to propose a policy
+		wants_propose_policy = {
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { international_organization_has_policy = policy:improved_imperial_authority_policy }
+					}
+				}
+				add = {
+					desc = "POLICY_ANCIENT_TRADITION"
+					value = 25 # Baseline for this law, better than figurehead
+				}
+			}
+			else = {
+				subtract = {
+					desc = "WE_ALREADY_HAVE_A_BETTER_POLICY"
+					value = 1000
+				}
+			}
+			add = hre_default_emperor_policy_desire
+		}
+		# How much the princes want to vote for / against the policy
+		wants_this_policy_bias = {
+			add = {
+				desc = "POLICY_ANCIENT_TRADITION"
+				value = 25  # Baseline policy for this law
+			}
+			add = hre_default_policy_opinion
+		}
+		wants_keep_policy = {
+			add = hre_default_keep_policy_opinion
+		}
+	}
+	improved_imperial_authority_policy = {
+		level = 3
+		allow = {
+			hre_allowed_emperor_reform_proposal = yes
+			hre_num_of_emperor_comfort_policies_active = { value = 2 }
+			hre_can_select_adjacent_reform_level = { law = law:power_of_the_emperor_law policy = policy:improved_imperial_authority_policy }
+			has_currency_to_vote_for_law = { value = imperial_authority_controversial_law }
+		}
+		on_activate = {
+			hre_on_reform_level_passed_effect = { law_imperial_authority_cost = imperial_authority_controversial_law }
+			hre_on_reform_level_passed_opinion_effect_all_members = { strength = controversial }
+		}
+		country_modifier = {
+			potential_trigger = {
+				#Emperor Modifier
+				is_leader_of_international_organization = scope:recipient
+			}
+			diplomatic_reputation = diplomatic_reputation_very_weak_bonus
+			monthly_imperial_authority = monthly_imperial_authority_mild_bonus
+		}
+		international_organization_modifier = {
+			imperial_ban_allowed = yes
+			allow_overrule_imperial_diet = yes
+		}
+		# How much the Emperor wants to propose a policy
+		wants_propose_policy = {
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { international_organization_has_policy = policy:revoke_privilegia_policy }
+					}
+				}
+				add = {
+					desc = "POLICY_EMPEROR_WANTS"
+					value = 100 # Priority reform for the emperor to progress integration if possible to do
+				}
+			}
+			else = {
+				subtract = {
+					desc = "WE_ALREADY_HAVE_A_BETTER_POLICY"
+					value = 1000
+				}
+			}
+			add = hre_default_emperor_policy_desire
+		}
+		# How much the princes want to vote for / against the policy
+		wants_this_policy_bias = {
+			add = {
+				desc = "POLICY_PRINCE_OPPOSES"
+				value = -100  # Princes dont like centralization
+			}
+			add = hre_default_policy_opinion
+		}
+		wants_keep_policy = {
+			add = hre_default_keep_policy_opinion
+		}
+	}
+	revoke_privilegia_policy = {
+		level = 4
+		allow = {
+			hre_allowed_emperor_reform_proposal = yes
+			international_organization_has_law = law:power_of_the_emperor_law
+			hre_num_of_emperor_comfort_policies_active = { value = 5 }
+			hre_can_select_adjacent_reform_level = { law = law:power_of_the_emperor_law policy = policy:revoke_privilegia_policy }
+			has_currency_to_vote_for_law = { value = imperial_authority_opposed_law }
+		}
+		on_activate = {
+			hre_on_reform_level_passed_effect = { law_imperial_authority_cost = imperial_authority_opposed_law }
+			hre_on_reform_level_passed_opinion_effect_all_members = { strength = opposed }
+			leader_country ?= {
+				trigger_event_non_silently = { 
+					id = hre.100
+				}
+			}
+		}
+		on_deactivate = {
+			leader_country ?= {
+				trigger_event_non_silently = {
+					id = hre.108
+				}
+			}
+		}
+		location_modifier = {
+			potential_trigger = {
+				custom_tooltip = {
+					text = hre_location_bonus_tt
+					is_owned_by_international_organization = international_organization:hre
+				}
+			}
+			#applies to all locations in the hre
+			local_institution_growth_modifier = 0.1
+		}
+		country_modifier = {
+			potential_trigger = {
+				#Emperor Modifier
+				is_leader_of_international_organization = scope:recipient
+			}
+			monthly_prestige = 0.1
+			monthly_imperial_authority = monthly_imperial_authority_very_strong_bonus
+			diplomatic_reputation = diplomatic_reputation_weak_bonus
+		}
+		international_organization_modifier = {
+			imperial_ban_allowed = yes
+			allow_overrule_imperial_diet = yes
+		}
+		# How much the Emperor wants to propose a policy
+		wants_propose_policy = {
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { international_organization_has_policy = policy:renovatio_policy }
+					}
+				}
+				add = {
+					desc = "POLICY_EMPEROR_WANTS"
+					value = 250 # Priority reform for the emperor to progress integration if possible to do
+				}
+			}
+			else = {
+				subtract = {
+					desc = "WE_ALREADY_HAVE_A_BETTER_POLICY"
+					value = 1000
+				}
+			}
+			add = hre_default_emperor_policy_desire
+		}
+		# How much the princes want to vote for / against the policy
+		wants_this_policy_bias = {
+			add = {
+				desc = "POLICY_PRINCE_OPPOSES"
+				value = -150  # Princes dont like centralization
+			}
+			add = hre_default_policy_opinion
+			add = {
+				desc = "LEVEL_OF_EMPEROR_COMFORT_REFORMS"
+				value = 10
+				multiply = scope:recipient.modifier:hre_emperor_comfort_policies_counter
+				multiply = -1
+			}
+		}
+		wants_keep_policy = {
+			add = hre_default_keep_policy_opinion
+		}
+	}
+	renovatio_policy = {
+		level = 5
+		allow = {
+			hre_allowed_emperor_reform_proposal = yes
+			international_organization_has_law = law:power_of_the_emperor_law
+			hre_num_of_emperor_comfort_policies_active = { value = 5 }
+			hre_can_select_adjacent_reform_level = { law = law:power_of_the_emperor_law policy = policy:renovatio_policy }
+			has_currency_to_vote_for_law = { value = imperial_authority_rebellious_law }
+		}
+		on_activate = {
+			hre_on_reform_level_passed_effect = { law_imperial_authority_cost = imperial_authority_rebellious_law }
+			leader_country = {
+				trigger_event_non_silently = { 
+					id = hre.102
+				}
+			}
+		}
+		location_modifier = {
+			potential_trigger = {
+				custom_tooltip = {
+					text = hre_location_bonus_tt
+					owner = { is_member_of_international_organization = international_organization:hre }
+				}
+			}
+			#applies to all locations in the hre
+			local_institution_growth_modifier = 0.1
+		}
+		country_modifier = {
+			#benefits for all members
+			stability_cost = -0.2
+		}
+		country_modifier = {
+			potential_trigger = {
+				#Emperor Modifier
+				is_leader_of_international_organization = scope:recipient
+			}
+			monthly_prestige = 0.2
+			diplomatic_reputation = diplomatic_reputation_mild_bonus
+		}
+		international_organization_modifier = {
+			enforced_internal_peace = yes
+			imperial_ban_allowed = yes
+			allow_overrule_imperial_diet = yes
+		}
+		# How much the Emperor wants to propose a policy
+		wants_propose_policy = {
+			add = {
+				desc = "POLICY_EMPEROR_WANTS"
+				value = 500 # Priority reform for the emperor to progress integration if possible to do
+			}
+			add = hre_default_emperor_policy_desire
+		}
+		# How much the princes want to vote for / against the policy
+		wants_this_policy_bias = {
+			add = {
+				desc = "POLICY_PRINCE_OPPOSES"
+				value = -150  # Princes dont like centralization
+			}
+			add = hre_default_policy_opinion
+			add = {
+				desc = "LEVEL_OF_EMPEROR_COMFORT_REFORMS"
+				value = 10
+				multiply = scope:recipient.modifier:hre_emperor_comfort_policies_counter
+				multiply = -1
+			}
+		}
+	}
+}
