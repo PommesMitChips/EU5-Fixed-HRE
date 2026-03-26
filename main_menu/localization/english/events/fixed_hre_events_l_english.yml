@@ -1,0 +1,5 @@
+﻿l_english:
+ hre.101.a: "We will swear loyalty to the Emperor and future emperors, becoming subjects under the imperial structure."
+ hre.108.title: "The Privilegia Restored"
+ hre.108.desc: "With the repeal of [GetUniqueInternationalOrganization('hre').GetName]'s Revoke the Privilegia, the bonds forged by imperial oath are dissolved. Fiefs and vassals revert to their former standing, and those bound solely by direct imperial charter are free to act as independent members of the Empire once more."
+ hre.108.a: "The Princes are free again."

@@ -1,0 +1,13 @@
+﻿l_english:
+ LEAD_imperial_vassal: "$LIST$ is a [SUBJECT_TYPE.GetName]"
+ AM_imperial_vassal: "[SUBJECT_TYPE.GetName] of $LIST$."
+ LEAD_direct_imperial_vassal: "$LIST$ is a [SUBJECT_TYPE.GetName]"
+ AM_direct_imperial_vassal: "[SUBJECT_TYPE.GetName] of $LIST$."
+ LEAD_imperial_fiefdom: "$LIST$ is a [SUBJECT_TYPE.GetName]"
+ AM_imperial_fiefdom: "[SUBJECT_TYPE.GetName] of $LIST$."
+ imperial_fiefdom: "Imperial Fiefdom"
+ imperial_fiefdom_desc: "An $imperial_fiefdom$ is a territory held through dynastic right or feudal grant that has been recognized by the [GetUniqueInternationalOrganization('hre').GetName]. While they remain loyal to their [overlord|e], their obligations are mediated by Imperial Law, ensuring they do not coordinate their strength against the [overlord|e]'s authority. They enjoy increased [ShowModifierTypeName('country_cabinet_efficiency')]."
+ imperial_vassal: "Imperial Vassal"
+ imperial_vassal_desc: "An $imperial_vassal$ is a state sworn to the protection of the [GetUniqueInternationalOrganization('hre').GetName]. They pay fees and join the military campaigns of their [overlord|e], but as their oath is tied to the Imperial structure, they do not sum their military power with other subjects when calculating their desire for liberty."
+ direct_imperial_vassal: "Direct Imperial Vassal"
+ direct_imperial_vassal_desc: "A $direct_imperial_vassal$ is a state sworn to the protection of the [GetUniqueInternationalOrganization('hre').GetName]. They pay fees and join the military campaigns of the emperor, and as their oath is tied to the Imperial structure, they do not sum their military power with other subjects when calculating their desire for liberty."

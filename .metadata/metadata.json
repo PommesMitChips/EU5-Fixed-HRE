@@ -1,0 +1,11 @@
+﻿{
+	"name":	"Fixed HRE",
+	"id":	"",
+	"version":	"0.1",
+	"supported_game_version":	"1.1.*",
+	"short_description":	"Fixes the HRE Revoke the Privilegia. Creates three new subject types: imperial vassals, imperial fiefdoms and direct imperial vassals. All of these cost no diplomatic capacity and do not contribute to liberty desire. Upon passing Revoke the Privilegia, all subjects within the HRE will convert following these rules:\n\n1. Personal unions turn into imperial fiefdoms under their current senior partner.\n2. Fiefdoms turn into imperial fiefdoms under their current overlord.\n3. Vassals turn into imperial vassals under their current overlord.\n4. Independent imperial princes turn into direct imperial vassals under the emperor.\n\nUpon coronation of a new emperor, the direct imperial vassals become subjects of the new emperor.",
+	"tags":	["Balance", "Diplomacy", "Fixes", "International Organizations", "Utilities"],
+	"relationships":	[],
+	"game_custom_data":	{
+}
+}
