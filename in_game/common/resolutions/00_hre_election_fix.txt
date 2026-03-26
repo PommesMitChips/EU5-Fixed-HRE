@@ -1,4 +1,4 @@
-﻿hre_election = {
+﻿REPLACE:hre_election = {
 	loc = hre_election
 	potential = { always = yes }
 	allow = {
@@ -328,7 +328,7 @@
 						is_ai = no	#check ONLY the player as this is a very heavy trigger and the AI is incapable of voting for any non-eligible country anyways
 						        OR = {  # allow direct imperial vassals
 									can_lead_international_organization = scope:recipient
-									subject_type = direct_imperial_vassal
+									is_subject_type = direct_imperial_vassal
 								}
 					}
 					subtract = {

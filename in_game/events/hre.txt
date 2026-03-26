@@ -26,10 +26,12 @@ hre.100 = {
 			international_organization:hre = {
 				every_international_organization_member = {
 					limit = {
-						NOT = { OR {
-							root = this
-							in_union_with = root
-						} }
+						NOT = {
+							OR = {
+								root = this
+								in_union_with = root
+							}
+						}
 					}
 					trigger_event_silently = { 
 						id = hre.101

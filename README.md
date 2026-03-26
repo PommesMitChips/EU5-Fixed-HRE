@@ -51,16 +51,16 @@ Brazilian Portuguese, English, French, German, Japanese, Korean, Polish, Russian
 | File | What it does |
 |---|---|
 | `in_game/events/hre.txt` | Full override of the base game event file, modifying `hre.101`, `hre.800`, and `hre.15`, and adding the new repeal event `hre.108` |
-| `in_game/common/laws/20_hre.txt` | Full override of the HRE law file, adding an `on_deactivate` hook to `revoke_privilegia_policy` |
-| `in_game/common/subject_types/hre_fixed.txt` | Defines the three new subject types |
-| `in_game/common/international_organizations/hre.txt` | Adds Direct Imperial Vassals as valid emperor candidates |
-| `in_game/common/resolutions/hre_election.txt` | Removes the subject exclusion modifier for Direct Imperial Vassals in elections |
+| `in_game/common/laws/00_hre_fix.txt` | Adds an `on_deactivate` hook to `revoke_privilegia_policy` |
+| `in_game/common/subject_types/00_hre_fixed.txt` | Defines the three new subject types |
+| `in_game/common/international_organizations/00_hre_fixed.txt` | Adds Direct Imperial Vassals as valid emperor candidates |
+| `in_game/common/resolutions/00_hre_election_fix.txt` | Removes the subject exclusion modifier for Direct Imperial Vassals in elections |
 | `main_menu/localization/*/events/fixed_hre_events_l_*.yml` | Event localisation for all supported languages |
 | `main_menu/localization/*/fixed_hre_subjects_l_*.yml` | Subject type names and descriptions for all supported languages |
 
 ## Compatibility
 
-Requires EU5 v1.1.10 or later. `hre.txt`, `20_hre.txt`, `hre.txt` (international organizations), and `hre_election.txt` are full file overrides. This mod will conflict with any other mod that modifies those files.
+Requires EU5 v1.1.10 or later. All files except `in_game/events/hre.txt` use partial definitions that load before the base game and merge cleanly. The events file is a full override and will conflict with other mods that modify the base game HRE events.
 
 ## Already passed the law?
 
